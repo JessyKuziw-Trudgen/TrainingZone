@@ -1,0 +1,70 @@
+DRIVER 	= 	100
+IRON 	= 	30
+=============================================================================================================
+Sub main ()
+	initialize distance equals 230
+	initialize choice equals “”
+	Display Prompt for name
+	name equals input from name prompt
+	While choice does not equal Q
+		Display welcome with name/main menu prompt
+		choice equals input from main menu prompt
+		Convert choice to uppercase
+		If choice is invalid 
+			Display error message
+		Else
+			If choice equals I
+				Display Instructions
+			ElseIf choice equals P
+					shotsTaken equals playGame(distance)
+					parCalc(shotsTaken)
+					Display play again prompt
+					choice equals input from play again prompt
+	If choice equals Q
+		Display thanks for playing message using name
+		End program
+
+--------------------------------------------------------------------------------------------------------
+
+Subfunction parCalc(shots)
+	initialize par equals 5
+	If shots equal par
+		Display on par message
+	ElseIf shots > par 
+		Display over par message
+	Else
+		Display under par message
+
+------------------------------------------------------------------------------------------------
+
+function playGame(dist) 
+	while dist > 0
+		Display club prompt with dist
+		club equals input from club prompt
+		convert club to uppercase
+		shots equal shots plus 1
+		if club is invalid
+			Display missed message
+		Else
+			If club equals D
+				hit equals generate Random Number between DRIVER*0.8 and DRIVER*1.2
+				dist equals dist minus hit converted to absolute value
+				Display Driver message using hit, dist and shots
+			ElseIf club equals I
+				hit equals generate Random Number between IRON*0.8 and IRON*1.2
+				dist equals dist minus hit converted to absolute value
+				Display Iron message using hit, shots and dist
+			ElseIf club equals P
+				if dist is <= 10
+					hit equals generate random number between dist*0.8 and dist*1.2
+					dist equals dist minus hit converted to absolute value
+					Display Putter message using hit, shots and dist
+				Else
+					hit equals generate random number between 1 and 10
+					dist equals dist minus hit converted to absolute value
+					Display Putter message using hit, shots and dist
+				
+
+Return shots as integer
+
+====================================================================================================================
